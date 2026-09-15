@@ -1191,4 +1191,5 @@ ca3d7b1753cfc850588e7f746886fb6bc161bf6c65f488553b017dc3d6be70b3  ./kf_review_in
 e223ff05018b65becd3992201108bf5e94df127b49aaeb0d3f442d9bf8999bc5  ./README-toolkit.md
 ecf9731e745ef965f65733a7c7cf530046dc25bea32681c40c6bc05a87e67ea2  ./rules/kw-order-variant-rule.md
 7c86386a6f77ab101bd60957e78df39449751dce01cf61c7f0eb6da2ffad4d74  ./list_bold.py
+ff224292d08bbaa180953930021bf91a8587b4799f5baa81d0fff13943be7ce3  ./00-SESSION-START.md
 ```
