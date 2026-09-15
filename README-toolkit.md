@@ -1,13 +1,20 @@
 # Backend batch toolkit — how a NEW session runs a batch with these files (2026-09-03)
 
-Every file here is a project doc; at session start a small agent copies them to /home/claude/work/
-(`project_read` → disk), plus title-check.py and desc-check.py which are also project docs, and the rule
-docs into rules/ — the rule docs are exactly the `./rules/…` lines of toolkit/MANIFEST.md, and that list
-includes `rules/PROJECT-DESCRIPTION.md` (the Backend document itself, which DESC-SPEC.md requires read in
-full); it was missing from the manifest until 2026-09-05 and had to be fetched by a separate agent every run. Rule docs
-live at the project root except the three 2026-09-06 rule docs, whose project paths are `claude/comparison-table-rule.md`,
-`claude/dimension-image-rule.md` and `claude/fit-block-rule.md` (the tool cannot write to the root). **Never use Haiku anywhere in this toolkit — every agent (copy, extraction, titles, descriptions, verification) runs on Sonnet or above** (user rule 2026-09-04) (user rule 2026-09-04; blr-batch13: Haiku truncated 2 docs and
-doubled regex backslashes in 2 scripts). Then, in order:
+**Session start (2026-09-15, user decision — GitHub route):** the toolkit lives in the GitHub repo
+`https://github.com/AysegulSuPzy/vepine-toolkit` (public, no token). The FIRST action of every run is one command, no agent, no
+`project_read` of any toolkit file:
+
+    git clone -q https://github.com/AysegulSuPzy/vepine-toolkit.git /home/claude/work && cd /home/claude/work
+
+This lands every toolkit script, spec and rule doc (`rules/…`, including `rules/PROJECT-DESCRIPTION.md`) exactly as the
+manifest expects, with zero model tokens — the old copy-agent step (project_read → Write, ~100k tokens per run and the source
+of every retyping corruption the manifest ever caught: dropped semicolons, doubled backslashes, reflowed lines) is retired.
+Then step 0 below (`sha256sum -c`) still runs as the integrity check. Only two things are NOT in the repo and are still read
+from the project: `toolkit/shopify-api-credentials.md` and `dataforseo-credentials.md` (credentials never go to GitHub; step 1
+writes them to `secrets/`, which `.gitignore` excludes). When a toolkit or rule doc changes, the change is made in the repo
+(the user uploads the file on GitHub) AND its MANIFEST.md line is recomputed in the same turn — the project copies under
+`toolkit/` are no longer the source of truth. **Never use Haiku anywhere in this toolkit — every agent (extraction, titles,
+descriptions, verification) runs on Sonnet or above** (user rule 2026-09-04). Then, in order:
 
 **Where run artefacts go (user decision 2026-09-08, project at its 2 MB cap):** only two docs per batch are written to
 the project — `claude/backup-titles-<tag>.md` (BEFORE the push, title-format-rule.md §13) and `claude/run-log-<tag>.md`

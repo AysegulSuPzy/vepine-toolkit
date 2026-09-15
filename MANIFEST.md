@@ -1121,10 +1121,22 @@ imperial-only cases) — 0 failures, every result idempotent. Regression: all 47
 (0 of 47), and a full `gate.py` run over the batch printed `=== gate: CLEAN ===` with `compare-build: 0 FAIL`,
 `fit-build: 0 FAIL`, `unit-dual: 0 item(s) converted` and every final byte-identical. Nothing was re-pushed.
 
+**Refresh note (2026-09-15, GITHUB ROUTE — toolkit moved to `https://github.com/AysegulSuPzy/vepine-toolkit`):** one line
+recomputed (both `./README-toolkit.md` entries) after a PROCESS CHANGE, user decision. The session-start copy agent
+(project_read → Write of ~57 docs, ~100k tokens per run, and the origin of every retyping corruption this manifest has
+caught) is retired: the first action of a run is now `git clone` of the public repo into /home/claude/work, zero model
+tokens, byte-exact by construction. The repo was verified on 2026-09-15 by cloning into the sandbox: 55 of 55 manifest
+lines OK, all .py compile. The two credentials docs stay project docs and are never pushed to GitHub (`secrets/` is
+git-ignored). From now on the repo is the source of truth for every toolkit and rule file: a change is uploaded to the
+repo by the user AND its line here is recomputed in the same turn; the `toolkit/` copies in the project are legacy and can
+be deleted once a batch has run cleanly from the clone. The copy-agent-specific text of this manifest ("Use" §1–6, the
+stale-vs-corrupted procedure) is kept for history; with git the only expected FAILED line is a doc edited without its
+line being recomputed.
+
 ```
 e5c03bb7bfe4dcd3bd2f5a488c3199c6ec1569e7c2bb3d6d34147d13061d7f8e  ./DESC-SPEC.md
 06007e07544be11e3be8b5194c17546c240543f24630b0da687d761c9447aeaa  ./EXTRACT-SPEC.md
-16ea515ec2faef4990d4a145a0e390b0f8a7cc841a26e26c12a602aa9d517615  ./README-toolkit.md
+e223ff05018b65becd3992201108bf5e94df127b49aaeb0d3f442d9bf8999bc5  ./README-toolkit.md
 2913097ea9a33ac4e6d0c72eeb21415d169f90c0c5d84f1eef4f2aef0d2726a0  ./TITLE-SPEC.md
 5b195b5e74771e669d1fa5735d383ba1f24a42caf8b80c5c58db9f3bd9189e09  ./build_check.py
 18af4fa1108f5c83e8773ec4d1a27cf8fc2bdfa77ce14e11f979e44055cf15e7  ./cap.py
@@ -1176,7 +1188,7 @@ ca3d7b1753cfc850588e7f746886fb6bc161bf6c65f488553b017dc3d6be70b3  ./kf_review_in
 02b0d2e9de323b1167d42c637d13ff244a3e0833667087cbee2dbb3b1a0d80d9  ./usage_tips.py
 9537576f5d9b334a0f8c36afa5691f2aae93a343bc5dc005c33960c1422df545  ./sections.py
 3338fb4510aa32b831bddfd602f5acb3f1e469d341d55a6757f5ad20605a5399  ./kw_measure.py
-16ea515ec2faef4990d4a145a0e390b0f8a7cc841a26e26c12a602aa9d517615  ./README-toolkit.md
+e223ff05018b65becd3992201108bf5e94df127b49aaeb0d3f442d9bf8999bc5  ./README-toolkit.md
 ecf9731e745ef965f65733a7c7cf530046dc25bea32681c40c6bc05a87e67ea2  ./rules/kw-order-variant-rule.md
 7c86386a6f77ab101bd60957e78df39449751dce01cf61c7f0eb6da2ffad4d74  ./list_bold.py
 ```
