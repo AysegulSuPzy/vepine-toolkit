@@ -1,26 +1,337 @@
 {
- "Home Decor": "gid://shopify/Collection/479213092900",
- "Kitchen & Dining": "gid://shopify/Collection/479213125668",
- "Latest Collection": "gid://shopify/Collection/479254970404",
- "Outdoor & Garden": "gid://shopify/Collection/479685804068",
- "Bathroom Essentials": "gid://shopify/Collection/479685902372",
- "Bedroom Essentials": "gid://shopify/Collection/479733350436",
- "Cooling Fan": "gid://shopify/Collection/479830442020",
- "Accessories": "gid://shopify/Collection/483342057508",
- "Home Interior": "gid://shopify/Collection/483342155812",
- "Smart Home Essentials": "gid://shopify/Collection/483342188580",
- "Pet Essentials": "gid://shopify/Collection/483342254116",
- "Toys": "gid://shopify/Collection/483342319652",
- "Car Essentials": "gid://shopify/Collection/483342352420",
- "Smartwatches": "gid://shopify/Collection/483342417956",
- "Gadgets": "gid://shopify/Collection/483342450724",
- "Kids": "gid://shopify/Collection/483342483492",
- "Health": "gid://shopify/Collection/483342549028",
- "Lightning": "gid://shopify/Collection/483342581796",
- "Smart Living": "gid://shopify/Collection/483342843940",
- "Tools & Hardware": "gid://shopify/Collection/483376955428",
- "Beauty & Personal Care": "gid://shopify/Collection/483376988196",
- "Cleaning & Home Care": "gid://shopify/Collection/483377020964",
- "Storage & Organization": "gid://shopify/Collection/483377053732",
- "duzenlenecekw": "gid://shopify/Collection/483624845348"
+ "data": {
+  "collections": {
+   "edges": [
+    {
+     "node": {
+      "id": "gid://shopify/Collection/654402617630",
+      "title": "Home Interior"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/654402650398",
+      "title": "Outdoor & Garden"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/654436270366",
+      "title": "Kitchen"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/655172239646",
+      "title": "Sleep Essentials"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/655273034014",
+      "title": "Toys"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/655273361694",
+      "title": "Pets"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/655315206430",
+      "title": "Mattress"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/655337554206",
+      "title": "Car Essentials"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/655342502174",
+      "title": "Sleeping Pad"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/655442510110",
+      "title": "Ice Maker"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/655443034398",
+      "title": "Gadgets"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/655443067166",
+      "title": "Accessories"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/655443132702",
+      "title": "Smart Watches"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/655443296542",
+      "title": "Health"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/655462695198",
+      "title": "Smart Home Essentials"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/655649505566",
+      "title": "Bedroom"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/655649538334",
+      "title": "Bathroom"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/655654519070",
+      "title": "Air Conditioner"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/655654813982",
+      "title": "Dryers"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/655654879518",
+      "title": "Bootle & Tumbler"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/655654912286",
+      "title": "Mini Washing Machine"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/655655043358",
+      "title": "Kids"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/655664742686",
+      "title": "Outdoor & Camping"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/655664840990",
+      "title": "Beauty"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/656151740702",
+      "title": "Baby"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/656195191070",
+      "title": "yeni"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/656227926302",
+      "title": "yeni2"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/711815725342",
+      "title": "Blanket"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/711970357534",
+      "title": "Cooling Blanket"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/711985922334",
+      "title": "Weighted Blanket"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/712052277534",
+      "title": "Duzenlenecek"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/712108736798",
+      "title": "ad"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/713230680350",
+      "title": "Halloween"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/713423126814",
+      "title": "Power Bank"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/714913218846",
+      "title": "DuzenlenecekW"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/715640144158",
+      "title": "Lighting"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/715640176926",
+      "title": "Table Lamps"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/715640209694",
+      "title": "Wall Lights"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/715640242462",
+      "title": "Doormats & Rugs"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/715640275230",
+      "title": "Home Storage"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/715640307998",
+      "title": "Wall Decor"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/715860214046",
+      "title": "Christmas"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/716003475742",
+      "title": "Apparel & Clothing"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/716003508510",
+      "title": "Tools & Hardware"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/716243992862",
+      "title": "Motorcycle Gear"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/716255363358",
+      "title": "Party Supplies"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/716255396126",
+      "title": "Pool & Beach"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/716255428894",
+      "title": "Telescopes & Stargazing"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/716255461662",
+      "title": "Fitness & Training Equipment"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/716276039966",
+      "title": "Cycling"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/716276072734",
+      "title": "Watches"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/716328599838",
+      "title": "Fans"
+     }
+    },
+    {
+     "node": {
+      "id": "gid://shopify/Collection/716328665374",
+      "title": "Bags & Backpacks"
+     }
+    }
+   ]
+  }
+ },
+ "extensions": {
+  "cost": {
+   "requestedQueryCost": 11,
+   "actualQueryCost": 7,
+   "throttleStatus": {
+    "maximumAvailable": 2000.0,
+    "currentlyAvailable": 1993,
+    "restoreRate": 100.0
+   }
+  }
+ }
 }
