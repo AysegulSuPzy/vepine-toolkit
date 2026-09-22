@@ -110,7 +110,7 @@ sections.
    **Confirmed for Vepine (user, 2026-09-10): the return window is also 30 days**, so the row is unchanged across the
    store change. It is a promise printed on every product page, so re-confirm it with the user whenever the store or
    its returns policy changes rather than carrying it over silently.
-7. **Safety Notes apply** to the rows exactly as to bullets: comfort language, never a medical outcome; pet/child
+7. **Safety Notes apply** to the rows exactly as to bullets: a health benefit only when the source states it, never a disease-treatment claim; pet/child
    products keep supervision wording in the description, not in the table.
 8. **US units only in the table (user decision 2026-09-11).** The store sells only in the USA and the copy is written
    for a US shopper, so a measurement in a row, an Others cell or the product name is shown in inches / feet, oz / lb,
