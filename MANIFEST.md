@@ -1121,6 +1121,21 @@ imperial-only cases) — 0 failures, every result idempotent. Regression: all 47
 (0 of 47), and a full `gate.py` run over the batch printed `=== gate: CLEAN ===` with `compare-build: 0 FAIL`,
 `fit-build: 0 FAIL`, `unit-dual: 0 item(s) converted` and every final byte-identical. Nothing was re-pushed.
 
+**Refresh note (2026-09-21 — health-claim rule rewritten, RULE CHANGE at the user's decision):** seven lines recomputed
+(eight lines counting both `./README-toolkit.md` entries): `./rules/PROJECT-DESCRIPTION.md`, `./rules/description-format-rule.md`
+(two sentences), `./fact_cover.py` (docstring only, code unchanged, compiles), `./README-toolkit.md` (one sentence in step 6b;
+store constants untouched), `./rules/comparison-table-rule.md`, `./rules/cta-benefits-metafield.md`, `./DESC-SPEC.md`. The
+Safety Notes rule of 2026-09-05 ("no physiological outcome the product cannot evidence") is replaced: a health benefit the
+SOURCE ITSELF states is KEPT, never softened or removed (relieves back and hip pain, reduces acid reflux, improves breathing,
+deep restful sleep, "instantly", "all night" included); a benefit the source does not state is never invented; forbidden in
+every case are disease-treatment claims ("heals", "treats", "cures" or "prevents" a named disease or condition) and
+"clinically proven" / "doctor recommended" / "FDA approved" unless the source itself states them; a source's own disclaimer
+sentence is kept. Every sentence in the toolkit that repeated the old "soften/remove medical claims" wording was aligned to
+this rule; `rules/fit-block-rule.md` ("proof half is a fact, never an outcome claim" — structural) and CTA-REVIEW-SPEC.md
+item 5 ("an outcome the source does not state") were left as they are, both consistent with the new rule. No step, script or
+gate was added. The changed files, this manifest and MANIFEST.sha256 were handed to the user (SendUserFile) for upload to the
+GitHub repo.
+
 **Refresh note (2026-09-15, GITHUB ROUTE — toolkit moved to `https://github.com/AysegulSuPzy/vepine-toolkit`):** one line
 recomputed (both `./README-toolkit.md` entries) after a PROCESS CHANGE, user decision. The session-start copy agent
 (project_read → Write of ~57 docs, ~100k tokens per run, and the origin of every retyping corruption this manifest has
@@ -1134,9 +1149,9 @@ stale-vs-corrupted procedure) is kept for history; with git the only expected FA
 line being recomputed.
 
 ```
-e5c03bb7bfe4dcd3bd2f5a488c3199c6ec1569e7c2bb3d6d34147d13061d7f8e  ./DESC-SPEC.md
+bbf1bd9a44b8e8fb68f25552563058287cdc65846e21f6fb6fb9606b5b72a96b  ./DESC-SPEC.md
 06007e07544be11e3be8b5194c17546c240543f24630b0da687d761c9447aeaa  ./EXTRACT-SPEC.md
-e223ff05018b65becd3992201108bf5e94df127b49aaeb0d3f442d9bf8999bc5  ./README-toolkit.md
+04f4f1574af220f2d8af12c5b0decc48cbba8ccc1599369b67f991b5bc65c135  ./README-toolkit.md
 2913097ea9a33ac4e6d0c72eeb21415d169f90c0c5d84f1eef4f2aef0d2726a0  ./TITLE-SPEC.md
 5b195b5e74771e669d1fa5735d383ba1f24a42caf8b80c5c58db9f3bd9189e09  ./build_check.py
 18af4fa1108f5c83e8773ec4d1a27cf8fc2bdfa77ce14e11f979e44055cf15e7  ./cap.py
@@ -1146,17 +1161,17 @@ f68add61a780c188c1811b927cd6e3bc03973a629034276ab089b70c5ffacad4  ./age_check.py
 b0757ad4fb2b1dd0ca20d03c64aeff9dc878467fe2397235c1f385fef76794bc  ./cta_check.py
 96a8718c232e6e2b645c142c0392ea7ee0867269a43ffefb2e3f0744be3c34be  ./desc-check.py
 9728c0425c474cf21d87bae9e713c30625158e553bcda5f4f7f96f5a8b5e334f  ./extract_html.py
-739e014db455d5fa6c684bc5bc4ebe3c68ccf54bf441b41ba3942175c9a7a38d  ./fact_cover.py
+f869bd34e0e4fc64dcb9a92945814d41fd26eb59fbfebb31df51ceb258ab9f4b  ./fact_cover.py
 cde1242bc9ef0068eab3e0dc6eb3448da487a390c8ef85c75000c438408f3746  ./factcheck_prompt.md
 7557042e4f1db8e2324b4098c18b095a92213563a9e51ac97f3373b430af79a8  ./gate.py
 b172ebe12906d7f84182c11605cec312000d2847718cf93c40cc58a7e622fdba  ./head_check.py
 2e2e2eb2493ba4ab84ab958e7681d5b278a00ca35da3a6abe594a15d41d076ff  ./novel_words.py
 e707095eb797499bba92ca2c7dfe4874f772ea6217bf9cb82b1c2af10cf5a23b  ./ov.py
-e476179f319d7050243278f83ec633070633c91409caac0b7fd1f08110e1beb9  ./rules/cta-benefits-metafield.md
+2c6ea4b36701103daabf8dad79c49e2a535656372681e86826ff7f5d60a5c084  ./rules/cta-benefits-metafield.md
 1da499cd8e7023e4e8e9682a3182206a2fd360ad64bb5203d9054d9f3b5c4c09  ./rules/dataforseo-credentials.md
-966fc7446304c450f4bacc82ead2162c9d889e385af810d050c32c2cf60dbb87  ./rules/description-format-rule.md
+76f2e43e1916f866be0d34879832ba28ef35896e02f058471fde7aa62f172dc1  ./rules/description-format-rule.md
 1009ea65ea1015faa372ae468977c555b4c986c18e1573c291e295de177bfc4f  ./rules/image-alt-text-rule.md
-89e1ce959490cd02fc753583ff46f997882cd48dfa7caaf1ee2de8d47c4deb30  ./rules/PROJECT-DESCRIPTION.md
+77ea823f6befff40870ea417021c5ffd602525ed841c891688799bc6a31268bb  ./rules/PROJECT-DESCRIPTION.md
 20f2560a880ecc6a627411a27ab77df075ea6f444ae6890fa1e6b76f459e08e2  ./rules/rule-overlap-deferred.md
 c46311789d9de5e814013c00810359b3d79f30c10f87bee9211cad81b42d0e09  ./rules/title-format-rule.md
 57c8dfd0dc944c0f2295e8ef7f10f856fd2fe11ad6c87a2f0e341ed3a5491c71  ./source_windows.py
@@ -1170,7 +1185,7 @@ d760253c45989bc067a08f56f3e645de9fc4a274ad71669ad7de8a5c4043af5f  ./struct-check
 7efb3ec28db74dbc0b8908fe1f09381e1cc9d614380b8f0bbdefd84999a43457  ./verify.py
 3a7534b56a90dc32e719b1bd7603a42c5d8004cb1977151d92a69944f7bc621f  ./rehost.py
 8dc19f117043ca6cc3d32dff69510f69ec937e8056af8a2f1d7e0d12c13c400a  ./compare_build.py
-cb37a47cd47eec6b172030c4a6b8c0a60dc11d642e14d94f9741b7a0385d9758  ./rules/comparison-table-rule.md
+19a1ddf11b0ab698e08fd5bd4ac34d62d1c877f8a44a4b8a782ed8def92ccef4  ./rules/comparison-table-rule.md
 0b71abddbbfba1a1922066bcdd935572fe0f562bb25993f9485650721061b0f8  ./dim_image.py
 18ff02a467edfa90758d943af8851d5878bc4609c7550cb6687a222f44b8bace  ./dim_attach.py
 2e8bd0864f237bfba8ea0fb0c0b804cfe30fc2a24623c9daca3de7b03e512da0  ./dim_keep.py
@@ -1188,7 +1203,7 @@ ca3d7b1753cfc850588e7f746886fb6bc161bf6c65f488553b017dc3d6be70b3  ./kf_review_in
 02b0d2e9de323b1167d42c637d13ff244a3e0833667087cbee2dbb3b1a0d80d9  ./usage_tips.py
 9537576f5d9b334a0f8c36afa5691f2aae93a343bc5dc005c33960c1422df545  ./sections.py
 3338fb4510aa32b831bddfd602f5acb3f1e469d341d55a6757f5ad20605a5399  ./kw_measure.py
-e223ff05018b65becd3992201108bf5e94df127b49aaeb0d3f442d9bf8999bc5  ./README-toolkit.md
+04f4f1574af220f2d8af12c5b0decc48cbba8ccc1599369b67f991b5bc65c135  ./README-toolkit.md
 ecf9731e745ef965f65733a7c7cf530046dc25bea32681c40c6bc05a87e67ea2  ./rules/kw-order-variant-rule.md
 7c86386a6f77ab101bd60957e78df39449751dce01cf61c7f0eb6da2ffad4d74  ./list_bold.py
 ff224292d08bbaa180953930021bf91a8587b4799f5baa81d0fff13943be7ce3  ./00-SESSION-START.md
