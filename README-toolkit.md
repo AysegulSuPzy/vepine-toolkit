@@ -105,6 +105,17 @@ archives under `Vepine/<tag>/`.
    outside that position; unit_dual.py converts inside these sections; fact_cover.py skips their lines. The run log carries
    `sections: N products with K sections, D dismissed (marketing M / policy P / lead L / long heading H), U unmapped named
    (pNN "…" → …)` — a log without this line means the step was skipped.
+   **3f. Supplier-specific helpers (added 2026-09-22, from ddl2-batch28; OPTIONAL — run only when the batch shows the
+   pattern):** `python3 spec_parse.py` — when a supplier writes the whole spec table as ONE run-on sentence (`Material: Metal
+   Dimensions: 25 cm … Wall Light Type: Sconce …`) and extract.specs came back empty, it splits that line into `{name, value}`
+   rows using a fixed LABELS lexicon (longest first; a colon whose label is not in the lexicon is left alone). Touches only
+   products whose extract.specs is EMPTY; the source line stays in facts. `[BLEED after …]` = a missing label, add it to
+   LABELS. Then `python3 fix_sections.py` — AFTER spec_parse.py and `sections.py --extract` (it reads extract.specs):
+   (1) a "Why You'll Love It" block is the supplier's Key Features, its lines go back into key_features; (2) a pseudo-section
+   whose heading is a spec label already in extract.specs is dropped (spec_cover enforces it); (3) a comma-pair marketing
+   headline over prose is the description lead → dismissed. Both scripts were written for one supplier: run with `--dry`
+   first on any other supplier and read the per-product lines before writing. Order: keyfeat/usage_tips --extract →
+   spec_parse.py → sections.py --extract → fix_sections.py → extraction agents.
 4. `python3 source_windows.py products.json > candidates/source_windows.txt` (script, zero model tokens; added 2026-09-06,
    user decision). Every contiguous 2–4-word window of every source title becomes a candidate — title-format-rule.md §1
    "the source title's own keywords are always measured", done exhaustively instead of by the extraction agent's judgment.

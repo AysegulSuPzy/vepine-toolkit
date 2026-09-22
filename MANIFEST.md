@@ -1148,10 +1148,15 @@ be deleted once a batch has run cleanly from the clone. The copy-agent-specific 
 stale-vs-corrupted procedure) is kept for history; with git the only expected FAILED line is a doc edited without its
 line being recomputed.
 
+**Refresh note (2026-09-22 — spec_parse.py and fix_sections.py, a 58th and 59th line):** two supplier-specific helpers
+from ddl2-batch28 added to the repo at the user's decision; `./README-toolkit.md` recomputed (both lines) for the new
+optional step 3f that documents them and their run order. No gate, rule or threshold changed; neither script is wired into
+gate.py.
+
 ```
 bbf1bd9a44b8e8fb68f25552563058287cdc65846e21f6fb6fb9606b5b72a96b  ./DESC-SPEC.md
 06007e07544be11e3be8b5194c17546c240543f24630b0da687d761c9447aeaa  ./EXTRACT-SPEC.md
-04f4f1574af220f2d8af12c5b0decc48cbba8ccc1599369b67f991b5bc65c135  ./README-toolkit.md
+9bb3684609cb04372e3d8cc3b1e30518e1a683a41458a2535dc8b65e4fca0e71  ./README-toolkit.md
 2913097ea9a33ac4e6d0c72eeb21415d169f90c0c5d84f1eef4f2aef0d2726a0  ./TITLE-SPEC.md
 5b195b5e74771e669d1fa5735d383ba1f24a42caf8b80c5c58db9f3bd9189e09  ./build_check.py
 18af4fa1108f5c83e8773ec4d1a27cf8fc2bdfa77ce14e11f979e44055cf15e7  ./cap.py
@@ -1203,8 +1208,10 @@ ca3d7b1753cfc850588e7f746886fb6bc161bf6c65f488553b017dc3d6be70b3  ./kf_review_in
 02b0d2e9de323b1167d42c637d13ff244a3e0833667087cbee2dbb3b1a0d80d9  ./usage_tips.py
 9537576f5d9b334a0f8c36afa5691f2aae93a343bc5dc005c33960c1422df545  ./sections.py
 3338fb4510aa32b831bddfd602f5acb3f1e469d341d55a6757f5ad20605a5399  ./kw_measure.py
-04f4f1574af220f2d8af12c5b0decc48cbba8ccc1599369b67f991b5bc65c135  ./README-toolkit.md
+9bb3684609cb04372e3d8cc3b1e30518e1a683a41458a2535dc8b65e4fca0e71  ./README-toolkit.md
 ecf9731e745ef965f65733a7c7cf530046dc25bea32681c40c6bc05a87e67ea2  ./rules/kw-order-variant-rule.md
 7c86386a6f77ab101bd60957e78df39449751dce01cf61c7f0eb6da2ffad4d74  ./list_bold.py
 ff224292d08bbaa180953930021bf91a8587b4799f5baa81d0fff13943be7ce3  ./00-SESSION-START.md
+3b8daef9a896547894840edc1503d009e2f553fc9eebae2140f14ee1d01003f9  ./spec_parse.py
+b3b64dd58e7faff215653dd17d1d7cd74d1ccd9e4ae76c2580c273a5273fbb51  ./fix_sections.py
 ```
