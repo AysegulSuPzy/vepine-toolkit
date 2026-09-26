@@ -227,7 +227,12 @@ archives under `Vepine/<tag>/`.
    drops it, and gate.py / struct-check.py ignore vp-dim by design, so nothing else would notice — gets the same tag restored
    under the new Specifications list, but only while its media is still in the live gallery (a gone media is a [WARN] for
    the operator, never a re-published dead link). Its `dim-keep: N restored, W warned, M untouched` line goes into the run
-   log. Then payloads: rewrites.json → push/mutN.json (10 aliased productUpdate incl. collectionsToJoin + category), cta
+   log. **Then `python3 spread.py final` (added 2026-09-26, every batch):** no two description images may touch — a run of
+   2+ images is spread one per section boundary (before an h2/h3/h4/div, never next to another image, never in/before FAQs)
+   and the leftovers go into one `div.fewpe-img-grid` (2 columns desktop, 1 under 750px, odd last image full width);
+   count, order, src and attributes unchanged — the approved exception to "position unchanged". Runs after gate CLEAN,
+   so gate.py is not re-run on its output; its `spread: N changed (G with grid), M untouched` line goes into the run log.
+   Then payloads: rewrites.json → push/mutN.json (10 aliased productUpdate incl. collectionsToJoin + category), cta
    metafieldsSet ×2, fileUpdate alt batches; backup-alt-<tag>.md to /mnt/user-data/outputs/ and sent to the chat BEFORE the
    alt push (NOT a project doc since 2026-09-08 — see "Where run artefacts go"); then
    `for f in push/mut*.json push/cta*.json push/alt*.json; do python3 shopify_api.py mutate $f; done`.
@@ -258,7 +263,8 @@ archives under `Vepine/<tag>/`.
    description's vp-dim src is rewritten to the new media, since 2026-09-09, instead of being left as a dead link). First live run: if the
    staged PUT fails on the connection, the storage host needs the egress allowlist — report it, do not retry blindly. Zero
    model tokens per product; two contact-sheet looks per batch.
-8. Verify: `python3 shopify_api.py fetch <tag> live_after.json`, then **`python3 verify.py products.json live_after.json
+8. Verify: `python3 shopify_api.py fetch <tag> live_after.json` (verify.py check 18 = image layout via spread.py; the
+   same check alone: `python3 spread.py check live_after.json`), then **`python3 verify.py products.json live_after.json
    collections.json`** (toolkit script since 2026-09-06 — before that every batch re-wrote its own verify.py and the checked
    fields varied silently; user decision after the 2026-09-06 checker audit). It compares EVERY product's live fields against
    final/dNN.json and the pre-push snapshot: title, normalized descriptionHtml, seo (+ 70/160 limits), productType, tags =

@@ -5,6 +5,8 @@ on top of the 2026-09-10 go-live checks (7 lines: theme colours, store row, veri
 after the same day's store change (17 lines: BRAND, CDN prefix, host, rule docs, credentials),
 on top of the same day's comparison-table mobile/desktop width fix and the rotated Shopify credential pair.
 
+**Refresh note (2026-09-26, DESCRIPTION IMAGE LAYOUT — user decision, Fewpe):** `./spread.py` added (new line): no two description images may touch — a run is spread one per section boundary, leftovers go into one 2-column `div.fewpe-img-grid` (1 column on mobile); count/order/src unchanged. Recomputed: `./verify.py` (check 18 image layout), `./README-toolkit.md` (step 7 runs `spread.py final`, step 8 names the check — both lines), `./DESC-SPEC.md`, `./rules/PROJECT-DESCRIPTION.md` and `./rules/description-format-rule.md` ("position unchanged" → "order unchanged", layout rule). Applied live the same day to 243 of 315 ACTIVE Fewpe products.
+
 **Refresh note (2026-09-14, TITLE MEASUREMENTS IN US UNITS — user decision):** three lines recomputed. `./rules/title-format-rule.md`
 §5 gained the "US units only" paragraph and a changelog entry; `./title-check.py` gained a push-blocking FAIL for a number
 with a metric unit in the title (cm/mm/m/kg/g/ml/l/°C; 5G / 2.4G and 3M exempt); `./TITLE-SPEC.md` tells the title agent
@@ -1154,9 +1156,9 @@ optional step 3f that documents them and their run order. No gate, rule or thres
 gate.py.
 
 ```
-bbf1bd9a44b8e8fb68f25552563058287cdc65846e21f6fb6fb9606b5b72a96b  ./DESC-SPEC.md
+c9b2d3303a7320375f855e9113cbdd4404b9cd112b9183971cc36daa7fdc3d97  ./DESC-SPEC.md
 06007e07544be11e3be8b5194c17546c240543f24630b0da687d761c9447aeaa  ./EXTRACT-SPEC.md
-9bb3684609cb04372e3d8cc3b1e30518e1a683a41458a2535dc8b65e4fca0e71  ./README-toolkit.md
+abe2fd15821a73dd1975235be54c06a229da678e56a4b0c2f39e067b328e65b5  ./README-toolkit.md
 2913097ea9a33ac4e6d0c72eeb21415d169f90c0c5d84f1eef4f2aef0d2726a0  ./TITLE-SPEC.md
 5b195b5e74771e669d1fa5735d383ba1f24a42caf8b80c5c58db9f3bd9189e09  ./build_check.py
 18af4fa1108f5c83e8773ec4d1a27cf8fc2bdfa77ce14e11f979e44055cf15e7  ./cap.py
@@ -1174,9 +1176,9 @@ b172ebe12906d7f84182c11605cec312000d2847718cf93c40cc58a7e622fdba  ./head_check.p
 e707095eb797499bba92ca2c7dfe4874f772ea6217bf9cb82b1c2af10cf5a23b  ./ov.py
 2c6ea4b36701103daabf8dad79c49e2a535656372681e86826ff7f5d60a5c084  ./rules/cta-benefits-metafield.md
 1da499cd8e7023e4e8e9682a3182206a2fd360ad64bb5203d9054d9f3b5c4c09  ./rules/dataforseo-credentials.md
-76f2e43e1916f866be0d34879832ba28ef35896e02f058471fde7aa62f172dc1  ./rules/description-format-rule.md
+8b19e9c98369112245ed7378ebcd4b848e3561dd0fa169eda64561e002de34de  ./rules/description-format-rule.md
 1009ea65ea1015faa372ae468977c555b4c986c18e1573c291e295de177bfc4f  ./rules/image-alt-text-rule.md
-77ea823f6befff40870ea417021c5ffd602525ed841c891688799bc6a31268bb  ./rules/PROJECT-DESCRIPTION.md
+494e6dcc5a70d0ee82dd7e02127db0d3d5a6bdddfc2f69524205121aa3311bcf  ./rules/PROJECT-DESCRIPTION.md
 20f2560a880ecc6a627411a27ab77df075ea6f444ae6890fa1e6b76f459e08e2  ./rules/rule-overlap-deferred.md
 c46311789d9de5e814013c00810359b3d79f30c10f87bee9211cad81b42d0e09  ./rules/title-format-rule.md
 57c8dfd0dc944c0f2295e8ef7f10f856fd2fe11ad6c87a2f0e341ed3a5491c71  ./source_windows.py
@@ -1187,7 +1189,7 @@ d760253c45989bc067a08f56f3e645de9fc4a274ad71669ad7de8a5c4043af5f  ./struct-check
 273f46e97944545391b078943aad6f439ecd1a171e77e958a2271fe6474372ff  ./title-check.py
 817577498a7cc20198aba46deebc9063d5fa6f1a5fc12338f619658539adb5e0  ./usage-efficiency-runbook.md
 420431d7b50507a524c1140eb0bcdd7ad6e04c6290246d99a0b5dd767db12205  ./value_check.py
-7efb3ec28db74dbc0b8908fe1f09381e1cc9d614380b8f0bbdefd84999a43457  ./verify.py
+907c9aa07f841d23038e15abd1e8b7050fa12396f9643e192fccb94605caed4e  ./verify.py
 3a7534b56a90dc32e719b1bd7603a42c5d8004cb1977151d92a69944f7bc621f  ./rehost.py
 8dc19f117043ca6cc3d32dff69510f69ec937e8056af8a2f1d7e0d12c13c400a  ./compare_build.py
 19a1ddf11b0ab698e08fd5bd4ac34d62d1c877f8a44a4b8a782ed8def92ccef4  ./rules/comparison-table-rule.md
@@ -1208,10 +1210,11 @@ ca3d7b1753cfc850588e7f746886fb6bc161bf6c65f488553b017dc3d6be70b3  ./kf_review_in
 02b0d2e9de323b1167d42c637d13ff244a3e0833667087cbee2dbb3b1a0d80d9  ./usage_tips.py
 9537576f5d9b334a0f8c36afa5691f2aae93a343bc5dc005c33960c1422df545  ./sections.py
 3338fb4510aa32b831bddfd602f5acb3f1e469d341d55a6757f5ad20605a5399  ./kw_measure.py
-9bb3684609cb04372e3d8cc3b1e30518e1a683a41458a2535dc8b65e4fca0e71  ./README-toolkit.md
+abe2fd15821a73dd1975235be54c06a229da678e56a4b0c2f39e067b328e65b5  ./README-toolkit.md
 ecf9731e745ef965f65733a7c7cf530046dc25bea32681c40c6bc05a87e67ea2  ./rules/kw-order-variant-rule.md
 7c86386a6f77ab101bd60957e78df39449751dce01cf61c7f0eb6da2ffad4d74  ./list_bold.py
 ff224292d08bbaa180953930021bf91a8587b4799f5baa81d0fff13943be7ce3  ./00-SESSION-START.md
 3b8daef9a896547894840edc1503d009e2f553fc9eebae2140f14ee1d01003f9  ./spec_parse.py
 b3b64dd58e7faff215653dd17d1d7cd74d1ccd9e4ae76c2580c273a5273fbb51  ./fix_sections.py
+b7abb3695f2d1f6bb42f520c0ad4fcedee0d4478b77427704f7d915636bc1596  ./spread.py
 ```

@@ -41,6 +41,7 @@ Per product (each is one check; a check that cannot run is reported, never silen
                       (brief_flags.json {"q17_compare_table": true|false}, read via compare_build.q17()); the fit block check
                       (Q19) expects exactly one single-column "Right for you if" block directly before <h3>FAQs</h3> (2026-09-06)
   16 alt uniqueness   no duplicate alt inside the product (media alts + description img alts)
+  18 image layout     no two description images touch outside the fewpe-img-grid (spread.py, 2026-09-26)
 Batch level: every final/dNN.json product present in live_after.json; no alt text repeated across the batch.
 
 Exit 1 on any failure. Output: one line per product + a summary line; failures name the check and show the two values.
@@ -171,6 +172,13 @@ for f in finals:
     # 13 description images
     li, fi = imgs(L['descriptionHtml']), imgs(d['descriptionHtml'])
     report(nn, 'description imgs', li == fi and all(CDN in s for s in li), f'live={len(li)} final={len(fi)} foreign={[s for s in li if CDN not in s][:2]} order_same={li==fi}')
+    # 18 image layout (spread.py, user decision 2026-09-26)
+    try:
+        from spread import adjacent as _adj
+        _a = _adj(L['descriptionHtml'])
+        report(nn, 'image layout', _a == 0, f'{_a} place(s) where two images touch outside the grid — run spread.py final and re-push')
+    except ImportError:
+        print(f'  [NOTE] {nn} image layout not checked (spread.py missing)')
     # 14 variant prices
     lv_ = {e['node']['id']: e['node']['price'] for e in (L.get('variants') or {}).get('edges', [])}
     if d.get('variants'): exp = {v['id']: str(v['price']) for v in d['variants']}
