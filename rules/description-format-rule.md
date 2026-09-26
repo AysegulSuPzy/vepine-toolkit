@@ -374,7 +374,9 @@ brand ban holds everywhere else. Its words are outside the length budget below. 
   disclaimers, water-safety warnings; source-stated health benefit claims are KEPT (2026-09-21), none invented,
   no disease-treatment claims (heals / treats / cures / prevents a named condition).
 - Image handling per the brief's Q14: never delete embedded images; re-host foreign
-  ones; count and position unchanged.
+  ones; count and order unchanged. Position changes only through spread.py (2026-09-26): two images
+  never touch — a run is spread one per section boundary, leftovers go into one 2-column
+  `div.fewpe-img-grid` (1 column on mobile). verify.py check 18 FAILs an adjacent pair.
 - **A description with no image gets two (user instruction, 2026-09-05).** When the source
   description carries no `<img>`, insert two of the product's own gallery images
   (`product.media`, already on our CDN) at the skeleton positions: image 1 between prose

@@ -53,7 +53,13 @@ supplier CDNs, AliExpress, cdn.shopifycdn.net of another store, or any third-par
 domain — must be re-hosted before the description is pushed.
 
 Never delete an embedded source image. Re-host it, then rewrite the src. The image
-count and position in the description stay exactly as they were.
+count and order in the description stay exactly as they were.
+
+Image layout (user decision 2026-09-26): no two images may sit back to back. When 2 or
+more images touch, they are spread one per section boundary (never next to another
+image, never inside FAQs); images left over go into one 2-column grid
+(div.fewpe-img-grid — 1 column on mobile). Count, order, src and attributes never change;
+only the position moves. Done by toolkit/spread.py, checked by verify.py check 18.
 
 Re-hosting procedure:
 
