@@ -67,7 +67,7 @@ def fmt(v, unit):
     return s
 
 def convert_run(numrun, factor, unit):
-    numrun = re.sub(r'\s*' + UNIT_RE + r'(?=\s*(?:x|×|\*|-|–|to)\b|\s*$)', '', numrun, flags=re.I)   # drop repeated inner units
+    numrun = re.sub(r'\s*' + UNIT_RE + r'(?=\s*(?:x|to)\b|\s*[×*\-–]|\s*$)', '', numrun, flags=re.I)   # drop repeated inner units
     return re.sub(NUM, lambda m: fmt(_num(m.group(0)) * factor, unit), numrun)
 
 def has_both(text):
@@ -157,6 +157,30 @@ def _skip(item, m, liquid=False, bagctx=None):
     if unit == "oz" and liquid: unit = "fl oz"      # a tank / capacity in oz is fluid ounces -> ml
     return False, unit
 
+# 2026-10-21 (linara shelf liner, live "18 in × 4 ft (5.5 in × 1.2 m) per roll"): a dimension run whose figures carry
+# DIFFERENT length units ("18 in × 4 ft", "2 ft x 18 in", "1 m x 50 cm") was converted with the LAST unit's factor applied to
+# every figure (18 ft -> 5.5 m) and the inner "in" survived. Each figure is now converted with its own unit, into one
+# target unit: in/ft -> cm, mm/cm/m -> in. Returns None for a run with one unit (handled by convert_run as before).
+LEN_TO_CM = {"in": 2.54, "inch": 2.54, "inches": 2.54, '"': 2.54, "ft": 30.48, "feet": 30.48}
+LEN_TO_IN = {"mm": 0.0393701, "cm": 0.393701, "m": 39.3701}
+PAIR = re.compile(r'(' + NUM + r')\s*' + UNIT_RE + r'?', re.I)
+def mixed_run(run, last_unit):
+    parts = re.split(r'(\s*(?:x|×|\*)\s*)', run)
+    if len(parts) < 3: return None
+    figs = parts[0::2]; seps = parts[1::2]; units = []
+    for f in figs:
+        m = re.fullmatch(r'\s*(' + NUM + r')\s*' + UNIT_RE + r'?\s*', f, re.I)
+        if not m: return None
+        u = (m.group(2) or last_unit).lower(); u = SPELLED.get(u, u); units.append((m.group(1), u))
+    if len({u for _, u in units}) < 2: return None
+    if all(u in LEN_TO_CM for _, u in units): table, tu = LEN_TO_CM, "cm"
+    elif all(u in LEN_TO_IN for _, u in units): table, tu = LEN_TO_IN, "in"
+    else: return None
+    vals = [f"{_num(n) * table[u]:.0f}" if tu == "cm" else fmt(_num(n) * table[u], tu) for n, u in units]
+    out = vals[0]
+    for sep, v in zip(seps, vals[1:]): out += sep + v
+    return f"{out} {tu}"
+
 def dual(item, ctx=""):
     liquid = bool(LIQUID.search(item.split(":")[0] if ":" in item else item)) or bool(re.search(r'\d\s*(?:fl\.? ?)?oz\s+(?:water\s+)?(?:tank|reservoir|capacity|bottle)', item, re.I))   # 2026-09-07: "60 oz tank" in prose/FAQ is fluid ounces even when the item has a Name: prefix
     def rep(m):
@@ -167,8 +191,10 @@ def dual(item, ctx=""):
         if unit in METRIC: tu, f = METRIC[unit]
         elif unit in IMPERIAL: tu, f = IMPERIAL[unit]
         else: return m.group(0)
+        mixed = mixed_run(run, unit)
         cr = COUNT_RUN.match(run)
-        if unit in COUNT_UNITS and cr:   # 2026-09-15: "2 x 500 ml" — keep the pack count, convert the value
+        if mixed: conv = mixed
+        elif unit in COUNT_UNITS and cr:   # 2026-09-15: "2 x 500 ml" — keep the pack count, convert the value
             conv = f"{cr.group(1)} x {convert_run(cr.group(2), f, tu)} {tu}"
         else:
             conv = f"{convert_run(run, f, tu)} {tu}"
