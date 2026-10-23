@@ -5,6 +5,8 @@ on top of the 2026-09-10 go-live checks (7 lines: theme colours, store row, veri
 after the same day's store change (17 lines: BRAND, CDN prefix, host, rule docs, credentials),
 on top of the same day's comparison-table mobile/desktop width fix and the rotated Shopify credential pair.
 
+**Refresh note (2026-10-23, DESCRIPTION → GALLERY SYNC — user decision):** `./rules/description-gallery-sync-rule.md` added (new line): when a description holds more than 2 images and any of them is missing from the product gallery, the missing ones are appended to the gallery via productCreateMedia (description order, after existing media, featured image untouched, no duplicates); descriptionHtml unchanged. verify.py check 19 (`GALLERY-MISSING`) still to be implemented.
+
 **Refresh note (2026-09-26, DESCRIPTION IMAGE LAYOUT — user decision, Fewpe):** `./spread.py` added (new line): no two description images may touch — a run is spread one per section boundary, leftovers go into one 2-column `div.fewpe-img-grid` (1 column on mobile); count/order/src unchanged. Recomputed: `./verify.py` (check 18 image layout), `./README-toolkit.md` (step 7 runs `spread.py final`, step 8 names the check — both lines), `./DESC-SPEC.md`, `./rules/PROJECT-DESCRIPTION.md` and `./rules/description-format-rule.md` ("position unchanged" → "order unchanged", layout rule). Applied live the same day to 243 of 315 ACTIVE Fewpe products.
 
 **Refresh note (2026-09-14, TITLE MEASUREMENTS IN US UNITS — user decision):** three lines recomputed. `./rules/title-format-rule.md`
@@ -1177,6 +1179,7 @@ e707095eb797499bba92ca2c7dfe4874f772ea6217bf9cb82b1c2af10cf5a23b  ./ov.py
 2c6ea4b36701103daabf8dad79c49e2a535656372681e86826ff7f5d60a5c084  ./rules/cta-benefits-metafield.md
 1da499cd8e7023e4e8e9682a3182206a2fd360ad64bb5203d9054d9f3b5c4c09  ./rules/dataforseo-credentials.md
 8b19e9c98369112245ed7378ebcd4b848e3561dd0fa169eda64561e002de34de  ./rules/description-format-rule.md
+1249f18c754e967e527169700de9840a734786476ee2f4594393338abd25a370  ./rules/description-gallery-sync-rule.md
 1009ea65ea1015faa372ae468977c555b4c986c18e1573c291e295de177bfc4f  ./rules/image-alt-text-rule.md
 494e6dcc5a70d0ee82dd7e02127db0d3d5a6bdddfc2f69524205121aa3311bcf  ./rules/PROJECT-DESCRIPTION.md
 20f2560a880ecc6a627411a27ab77df075ea6f444ae6890fa1e6b76f459e08e2  ./rules/rule-overlap-deferred.md
